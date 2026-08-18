@@ -1,0 +1,8 @@
+build/
+dist/
+*.class
+.DS_Store
+nbproject/private/
+lib/javafx-sdk-24.0/
+lib/lib/
+*.dylib

@@ -1,0 +1,138 @@
+/* ===== General ===== */
+
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #fff5f8;
+}
+
+
+/* ===== Labels ===== */
+
+.label {
+    -fx-font-family: "Arial";
+    -fx-text-fill: #000000;
+    -fx-font-size: 14px;
+}
+
+
+/* Main title */
+
+.label.title {
+    -fx-font-family: "Arial";
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+}
+
+
+/* Subtitle */
+
+.label.subtitle {
+    -fx-font-family: "Arial";
+    -fx-font-size: 13px;
+    -fx-text-fill: #000000;
+}
+
+
+/* ===== Buttons ===== */
+
+.button {
+    -fx-font-family: "Arial";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+
+    -fx-background-color: #f7b6c8;
+    -fx-text-fill: #000000;
+
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+
+    -fx-padding: 8px 18px;
+
+    -fx-cursor: hand;
+}
+
+
+/* Button when mouse is over it */
+
+.button:hover {
+    -fx-background-color: #f4a6bd;
+}
+
+
+/* Button when clicked */
+
+.button:pressed {
+    -fx-background-color: #ed91ad;
+}
+
+
+/* ===== Text Fields ===== */
+
+.text-field {
+    -fx-font-family: "Arial";
+    -fx-font-size: 13px;
+
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+
+    -fx-border-color: #f7b6c8;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
+
+    -fx-padding: 7px;
+}
+
+
+/* Text field when selected */
+
+.text-field:focused {
+    -fx-border-color: #ed91ad;
+}
+
+
+/* ===== ComboBox ===== */
+
+.combo-box {
+    -fx-font-family: "Arial";
+    -fx-font-size: 13px;
+
+    -fx-background-color: #ffffff;
+
+    -fx-border-color: #f7b6c8;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
+}
+
+
+/* ===== Text Area ===== */
+
+.text-area {
+    -fx-font-family: "Arial";
+    -fx-font-size: 13px;
+
+    -fx-control-inner-background: #ffffff;
+
+    -fx-border-color: #f7b6c8;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
+}
+
+
+/* ===== Alert ===== */
+
+.alert {
+    -fx-font-family: "Arial";
+}
+
+.dialog-pane {
+    -fx-background-color: #fff5f8;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial";
+}
