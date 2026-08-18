@@ -23,13 +23,21 @@ jobs:
           Invoke-WebRequest `
             -Uri "https://download2.gluonhq.com/openjfx/24.0.2/openjfx-24.0.2_windows-x64_bin-sdk.zip" `
             -OutFile "javafx.zip"
+
           Expand-Archive "javafx.zip" -DestinationPath "."
+
           Rename-Item "javafx-sdk-24.0.2" "javafx"
 
-      - name: Build
+      - name: Build project
         shell: cmd
         run: |
           ant clean jar
+
+      - name: Prepare JavaFX libraries
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Force -Path "javafx-runtime"
+          Copy-Item "javafx\lib\*" "javafx-runtime\" -Recurse
 
       - name: Package Windows App
         shell: cmd
@@ -40,14 +48,22 @@ jobs:
             --input dist ^
             --main-jar Todolist.jar ^
             --main-class GUI ^
-            --module-path javafx/lib ^
+            --module-path javafx-runtime ^
             --add-modules javafx.controls,javafx.fxml ^
+            --java-options "--enable-native-access=javafx.graphics" ^
             --dest output
+
+      - name: Copy JavaFX native libraries
+        shell: powershell
+        run: |
+          Copy-Item "javafx-runtime\*.dll" "output\Todolist\" -Force -ErrorAction SilentlyContinue
 
       - name: Zip Windows App
         shell: powershell
         run: |
-          Compress-Archive -Path "output\Todolist" -DestinationPath "Todolist-Windows.zip"
+          Compress-Archive `
+            -Path "output\Todolist" `
+            -DestinationPath "Todolist-Windows.zip"
 
       - name: Upload Windows App
         uses: actions/upload-artifact@v4
